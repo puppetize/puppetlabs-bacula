@@ -218,4 +218,6 @@ class bacula::config {
   $director_template = $::bacula_director_template
   $storage_template  = $::bacula_storage_template
   $console_template  = $::bacula_console_template
+  $uid               = $::bacula_uid
+  $gid               = $::bacula_gid
 }

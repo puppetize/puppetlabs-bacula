@@ -128,10 +128,10 @@ class bacula(
     $console_template        = $bacula::config::console_template,
     $use_console             = $bacula::config::safe_use_console,
     $console_password        = $bacula::config::console_password,
+    $uid                     = $bacula::config::uid,
+    $gid                     = $bacula::config::gid,
     $clients                 = {}
   ) inherits bacula::config {
-    
-
 
   #Validate our parameters
   #It's ugly to do it in the parent class
@@ -166,6 +166,8 @@ class bacula(
     db_database      => $db_database,
     db_port          => $db_port,
     packages         => $packages,
+    uid              => $uid,
+    gid              => $gid
   }
 
   

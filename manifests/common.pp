@@ -18,7 +18,9 @@ class bacula::common(
     $db_database,
     $db_password,
     $db_port,
-    $db_host
+    $db_host,
+    $uid = undef,
+    $gid = undef
   ) {
 
   if $packages {
@@ -79,11 +81,13 @@ class bacula::common(
 
   user { 'bacula':
     ensure => present,
+    uid    => $uid,
     gid    => 'bacula',
   }
 
   group { 'bacula':
     ensure => present,
+    gid    => $gid
   }
 
   file { '/var/lib/bacula':
