@@ -30,5 +30,5 @@ Job {
 <% if messages != '' -%>
   Messages = <%= messages %>
 <% end -%>
-<%= content -%>
+<%= @template == '' ? @content : scope.function_template([@template]) -%>
 }
