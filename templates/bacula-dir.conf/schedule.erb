@@ -1,0 +1,7 @@
+
+Schedule {
+  Name = <%= name %>
+<% Array(@run).each do |job_overrides_and_data_time_spec| -%>
+  Run = <%= job_overrides_and_data_time_spec %>
+<% end -%>
+}

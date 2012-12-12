@@ -7,6 +7,9 @@ Job {
 <% if jobdefs != '' -%>
   JobDefs = "<%= jobdefs %>"
 <% end -%>
+<% if schedule != '' -%>
+  Schedule = "<%= schedule %>"
+<% end -%>
 <% if scope.lookupvar('type') != '' -%>
   Type = <%= scope.lookupvar('type') %>
 <% end -%>
