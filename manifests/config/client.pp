@@ -1,7 +1,10 @@
 define bacula::config::client (
+   $director_name,
    $fileset  = 'Basic:noHome',
-   $schedule = 'WeeklyCycle'
+   $bacula_schedule = 'WeeklyCycle'
  ) {
+ # XXX: schedule is a meta-parameter
+ $schedule = $bacula_schedule
 
  if ! is_domain_name($name) {
    fail "Name for client ${name} must be a fully qualified domain name"
