@@ -1,0 +1,9 @@
+  Include {
+    Options {
+      signature = MD5
+<% if compression -%>
+      compression = <%= compression == true ? 'GZIP' : compression %>
+<% end -%>
+    }
+    Plugin = "bpipe:<%= path %>:<%= reader %>:<%= writer %>"
+  }

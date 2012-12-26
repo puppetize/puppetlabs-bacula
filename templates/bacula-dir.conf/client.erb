@@ -1,0 +1,12 @@
+
+# Client (File service) to backup or restore
+Client {
+  Name = <%= name %>
+  Address = <%= address %>
+  FD Port = <%= fd_port %>
+  Catalog = <%= catalog %>
+  Password = "<%= password %>"        # password for FileDaemon
+  File Retention = <%= file_retention %>
+  Job Retention = <%= job_retention %>
+  AutoPrune = <%= autoprune %>
+}

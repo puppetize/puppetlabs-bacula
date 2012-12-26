@@ -83,7 +83,7 @@ class bacula::director(
     package { $director_package:
       ensure => installed,
     }
-    File['/etc/bacula/bacula-dir.conf'] {
+    Bacula::Config_file['/etc/bacula/bacula-dir.conf'] {
       require +> Package[$director_pacakge],
     }
   }
@@ -97,13 +97,12 @@ class bacula::director(
   # Create the configuration for the Director and make sure the directory for
   # the per-Client configuration is created before we run the realization for
   # the exported files below
-  file { '/etc/bacula/bacula-dir.conf':
-    ensure  => file,
-    owner   => 'bacula',
-    group   => 'bacula',
-    content => template($template),
-    notify  => Service['bacula-director'],
-    require => $db_package ? {
+  bacula::config_file { '/etc/bacula/bacula-dir.conf':
+    owner     => 'bacula',
+    group     => 'bacula',
+    content   => template($template),
+    notify    => Service['bacula-director'],
+    require   => $db_package ? {
       ''      => undef,
       default => Package[$db_package],
     }

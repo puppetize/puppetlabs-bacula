@@ -72,7 +72,7 @@ class bacula::storage(
     package { $storage_package:
       ensure => installed,
     }
-    File['/etc/bacula/bacula-sd.conf'] {
+    Bacula::Config_file['/etc/bacula/bacula-sd.conf'] {
       require +> Package[$storage_package],
     }
     Service['bacula-sd'] {
@@ -86,8 +86,7 @@ class bacula::storage(
     }
   }
 
-  file { '/etc/bacula/bacula-sd.conf':
-    ensure  => file,
+  bacula::config_file { '/etc/bacula/bacula-sd.conf':
     owner   => 'bacula',
     group   => 'bacula',
     content => template($template),

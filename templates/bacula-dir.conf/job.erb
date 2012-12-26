@@ -1,0 +1,34 @@
+
+<% if comment != '' -%>
+# <%= comment %>
+<% end -%>
+Job {
+  Name = "<%= name %>"
+<% if jobdefs != '' -%>
+  JobDefs = "<%= jobdefs %>"
+<% end -%>
+<% if scope.lookupvar('type') != '' -%>
+  Type = <%= scope.lookupvar('type') %>
+<% end -%>
+<% if level != '' -%>
+  Level = <%= level %>
+<% end -%>
+  Client = <%= client %>
+  FileSet = "<%= fileset %>"
+<% if where != '' -%>
+  where = <%= where %>
+<% end -%>
+<% if accurate -%>
+  Accurate = yes
+<% end -%>
+<% if storage != '' -%>
+  Storage = <%= storage %>
+<% end -%>
+<% if pool != '' -%>
+  pool = <%= pool %>
+<% end -%>
+<% if messages != '' -%>
+  Messages = <%= messages %>
+<% end -%>
+<%= content -%>
+}

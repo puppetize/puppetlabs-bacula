@@ -35,8 +35,7 @@ class bacula::client(
     ensure => installed,
   }
 
-  file { '/etc/bacula/bacula-fd.conf':
-    ensure  => file,
+  bacula::config_file { '/etc/bacula/bacula-fd.conf':
     content => template('bacula/bacula-fd.conf.erb'),
     notify  => Service['bacula-fd'],
     require => Package[$client_package],

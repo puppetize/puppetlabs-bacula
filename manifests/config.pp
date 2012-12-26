@@ -209,6 +209,10 @@ class bacula::config {
     default => $::bacula_db_database,
   }
 
+  $use_file_concat = $::bacula_use_file_concat ? {
+    undef   => false,
+    default => $::bacula_use_file_concat
+  }
 
   #If it's undef, that's fine
   $director_template = $::bacula_director_template

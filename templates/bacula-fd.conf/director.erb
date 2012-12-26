@@ -1,0 +1,14 @@
+
+<% if monitor -%>
+# Restricted Director, used by tray-monitor to get the status of the
+# File daemon
+<% else -%>
+# Director who is permitted to contact this File daemon
+<% end -%>
+Director {
+  Name = <%= name %>
+  Password = "<%= password %>"
+<% if monitor -%>
+  Monitor = yes
+<% end -%>
+}
