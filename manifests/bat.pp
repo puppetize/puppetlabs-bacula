@@ -4,7 +4,7 @@
 # 
 # Actions:
 #   - Enforce the bacula-console-qt package is installed
-#   - Enforce /etc/bacula/bat.conf points to /etc/bacula/bconsole.bat
+#   - Enforce /etc/bacula/bat.conf points to bconsole.conf
 #
 # Sample Usage:
 # 
