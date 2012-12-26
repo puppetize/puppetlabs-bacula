@@ -87,11 +87,12 @@ class bacula::storage(
   }
 
   bacula::config_file { '/etc/bacula/bacula-sd.conf':
-    owner   => 'bacula',
-    group   => 'bacula',
-    content => template($template),
-    notify  => Service['bacula-sd'],
-    require => $db_package ? {
+    mode      => '0440',
+    owner     => 'bacula',
+    group     => 'bacula',
+    content   => template($template),
+    notify    => Service['bacula-sd'],
+    require   => $db_package ? {
       ''      => undef,
       default => Package[$db_package],
     }

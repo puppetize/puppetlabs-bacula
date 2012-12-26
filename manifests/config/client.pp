@@ -15,6 +15,9 @@ define bacula::config::client (
 
  file { "/etc/bacula/bacula-dir.d/${name}.conf":
    ensure  => file,
+   mode    => '0440',
+   owner   => 'bacula',
+   group   => 'bacula',
    content => template('bacula/client_config.erb'),
    notify  => Service['bacula-director'],
  }
