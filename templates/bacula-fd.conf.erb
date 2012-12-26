@@ -15,6 +15,7 @@ FileDaemon {
   Name = "<%= hostname.split('.').first -%>"
   Working Directory = /var/lib/bacula
   PID Directory = /var/run/bacula
+  Plugin Directory = /usr/lib/bacula
   Maximum Concurrent Jobs = 3
 }
 
